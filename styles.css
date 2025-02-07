@@ -1,26 +1,38 @@
-/* Video Background */
+/* Ensure the video covers the entire viewport */
 #bg-video {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     z-index: -1;
 }
 
-/* Content Styling */
+/* Ensure content appears over the video */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
     color: white;
+    position: relative;
+}
+
+/* Overlay to improve readability */
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Ensures content is centered */
+    background: rgba(0, 0, 0, 0.5); /* Optional dark overlay */
+    width: 100%;
 }
 
 header {
-    position: relative;
-    background: rgba(0, 0, 0, 0.6);
     padding: 20px;
 }
 
