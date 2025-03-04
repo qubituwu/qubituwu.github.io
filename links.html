@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Links - qubituwu</title>
+    <link rel="icon" href="assets/LHC_logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Load Shared Header -->
+    <div id="header-container"></div>
+    <main>
+        <div class="links-container">
+            <h2 class="page-title">My Links</h2>
+            <a href="https://www.instagram.com/qubituwu" class="link-button" target="_blank">
+                <img src="assets/instagram-logo.png" alt="Instagram Logo" class="logo-icon"> 
+                <span>Instagram</span>
+            </a>
+            <a href="https://www.tiktok.com/@qubituwu" class="link-button" target="_blank">
+                <img src="assets/tiktok-logo.png" alt="TikTok Logo" class="logo-icon">
+                <span>TikTok</span>
+            </a>
+            <a href="https://www.twitch.tv/qubituwu" class="link-button" target="_blank">
+                <img src="assets/twitch-logo.png" alt="Twitch Logo" class="logo-icon">
+                <span>Twitch</span>
+            </a>
+            <a href="https://twitter.com/qubituwu" class="link-button" target="_blank">
+                <img src="assets/x-logo.png" alt="X Logo" class="logo-icon">
+                <span>X</span>
+            </a>
+            <a href="https://open.spotify.com/user/raul_iii" class="link-button" target="_blank">
+                <img src="assets/spotify-logo.png" alt="Spotify Logo" class="logo-icon">
+                <span>Spotify</span>
+            </a>
+            <a href="https://gearz.gg/qubit" class="link-button" target="_blank">
+                <img src="assets/gearz-logo.png" alt="Gearz Logo" class="logo-icon">
+                <span>Gearz</span>
+            </a>
+            <a href="https://www.linkedin.com/in/raul-lopez-iii" class="link-button" target="_blank">
+                <img src="assets/linkedin-logo.png" alt="LinkedIn Logo" class="logo-icon">
+                <span>LinkedIn</span>
+            </a>
+            <a href="https://www.youtube.com/@qubituwu" class="link-button" target="_blank">
+                <img src="assets/youtube-logo.png" alt="YouTube Logo" class="logo-icon">
+                <span>YouTube</span>
+            </a>
+            <a href="https://github.com/qubituwu" class="link-button" target="_blank">
+                <img src="assets/github-logo.png" alt="GitHub Logo" class="logo-icon">
+                <span>GitHub</span>
+            </a>
+        </div>        
+    </main>
+    <script>
+        // Load shared header
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
+    </script>
+</body>
+</html>
+

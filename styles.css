@@ -41,7 +41,7 @@ header {
     top: 0;
     left: 0;
     width: 100vw; /* Ensures full width */
-    background: rgba(0, 0, 0, 0.9);
+    background: linear-gradient(45deg, rgba(0, 23, 5, 0.9), rgba(13, 13, 13, 0.9));
     padding: 10px;
     display: flex;
     justify-content: flex-start; /* Pushes logo left, links right */
@@ -60,6 +60,17 @@ header {
         0 0 10px #FFFFFF;  /* White glow */
 }
 
+.page-title {
+    color: white;
+    margin: 0 20px 0 0;
+    font-size: 75px;    
+    font-weight: bold;
+    margin-left: 15px;
+    text-shadow: 
+        0 0 5px #FFFFFF,   /* White glow */
+        0 0 10px #FFFFFF;  /* White glow */
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -68,6 +79,7 @@ header {
     padding: 0;
     justify-content: flex-end; /* Aligns to the right */
     margin-left: auto; /* Push the links to the right */
+    padding-right: 20px; /* Add some space on the right */
 }
 
 .nav-links li {
@@ -113,6 +125,7 @@ header {
         top: 60px;
         right: 0;
         background: rgba(0, 0, 0, 0.9);
+        padding-right: 20px; /* Add some space on the right */
         width: 100%;
         text-align: center;
         padding: 10px 0;
@@ -143,4 +156,73 @@ header {
     word-wrap: break-word; /* Allow long words to break and wrap */
     max-width: 80%; /* Optional: Controls the width of the text container */
   }
+
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.link-button {
+    display: flex; /* Use flexbox to align the logo and text */
+    align-items: center; /* Vertically center the logo and text */
+    justify-content: center; /* Center the content horizontally */
+    width: 80%;
+    max-width: 400px;
+    padding: 15px;
+    margin: 10px 0;
+    background: linear-gradient(45deg, rgba(0, 23, 5, 0.9), rgba(13, 13, 13, 0.9));
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold; /* Make text bold */
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.link-button:hover {
+    background-color: #333;
+}
+
+.logo-icon {
+    width: 40px; /* Adjust to your preferred size */
+    height: 40px;
+    margin-right: 10px; /* Add space between the logo and the text */
+    object-fit: contain; /* Ensures the logo maintains its aspect ratio */
+}
+
+/* Ensuring that text is centered */
+.link-button span {
+    display: inline-block;
+    flex-grow: 1; /* Allow text to take up remaining space */
+    text-align: center;  /* Center text */
+    line-height: 1.2; /* Make sure the text is vertically aligned */
+    margin-right: 35px; /* Space between logo and text */
+
+}
+
+
+
+
+
   
