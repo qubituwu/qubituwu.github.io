@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eSports - qubituwu</title>
+    <link rel="icon" href="assets/LHC_logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Load Shared Header -->
+    <div id="header-container"></div>
+    <main>
+
+    </main>
+    <script>
+        // Load shared header
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
+    </script>
+</body>
+</html>
+

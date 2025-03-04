@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - qubituwu</title>
+    <link rel="icon" href="assets/LHC_logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Load Shared Header -->
+    <div id="header-container"></div>
+    
+    <!-- Modal Windows -->
+    <div class="card-container">
+        <div class="card" data-popup="popup-bio">Personal Bio</div>
+        <div class="card" data-popup="popup-technicalskills">Technical Skills</div>
+        <div class="card" data-popup="popup-accomplishments">Accomplishments</div>
+        <div class="card" data-popup="popup-music">Music</div>
+        <div class="card" data-popup="popup-hobbies">Hobbies and Interests</div>
+        
+    </div>
+    
+    <div id="popup-bio" class="popup">
+        <div class="popup-header">
+            Personal Bio
+            <button class="close-btn">X</button>
+        </div>
+        <p>hey, i'm qubit; fullstack software engineer, content creator, top500 tank.</p>
+    </div>
+    
+    <div id="popup-accomplishments" class="popup">
+        <div class="popup-header">
+            Accomplishments
+            <button class="close-btn">X</button>
+        </div>
+        <p>Here are my accomplishments...</p>
+    </div>
+    
+    <div id="popup-technicalskills" class="popup">
+        <div class="popup-header">
+            Technical Skills
+            <button class="close-btn">X</button>
+        </div>
+        <p>python, js, c++...</p>
+    </div>
+
+    <div id="popup-music" class="popup">
+        <div class="popup-header">
+            Music
+            <button class="close-btn">X</button>
+        </div>
+        <p>nettspend and aespa.</p>
+    </div>
+
+    <div id="popup-hobbies" class="popup">
+        <div class="popup-header">
+            Hobbies and Interest
+            <button class="close-btn">X</button>
+        </div>
+        <p>i like gaming, ABGS, and coding.</p>
+    </div>
+
+    <script>
+        // Load shared header
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+

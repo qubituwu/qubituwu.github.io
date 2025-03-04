@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - qubituwu</title>
+    <link rel="icon" href="assets/LHC_logo.jpg" type="image/jpg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Load Shared Header -->
+    <div id="header-container"></div>
+    
+    <!-- Modal Windows -->
+    <div class="card-container">
+        <div class="card" data-popup="popup-edu">Education</div>
+        <div class="card" data-popup="popup-skills">Skills</div>
+        <div class="card" data-popup="popup-experience">Experience</div>
+        <div class="card" data-popup="popup-projects">Publications / Projects</div>
+        <div class="card" data-popup="popup-pd">Leadership / Prof. Development</div>
+        <div class="card" data-popup="popup-orgs">Organizations</div>
+        
+    </div>
+    
+    <div id="popup-edu" class="popup">
+        <div class="popup-header" id="popup-edu-header">
+            Education
+            <button class="close-btn">X</button>
+        </div>
+        <p>Florida Polytechnic University, Cumulative GPA: 3.5 | Major GPA: 3.8 Lakeland, FL
+            Bachelor of Science in Computer Science, Concentration in Software Engineering May 2025
+            Relevant Coursework: UI/UX, Software Architecture, Secure SWE, Data Structures, Algorithms 
+            Design & Analysis, OOP, AI, ML, Computer Networks, OS Concepts, Database 1, Programming Languages, 
+            Computer Architecture, Comp. Linear Algebra, Discrete Math, DLD.</p>
+    </div>
+    
+    <div id="popup-skills" class="popup">
+        <div class="popup-header" id="popup-skills-header">
+            Skills
+            <button class="close-btn">X</button>
+        </div>
+        <p>Programming Languages: C/C++, Python, SQL, Java, JavaScript, MATLAB, TypeScript, HTML/CSS, MIPS Assembly
+            Frameworks: PySpark, Flask, Rasa, PyTorch, TensorFlow, Express.js, React, Next.js, jQuery, Django, Vue, Ruby, Spring, .NET Core
+            Tools: Azure, AWS Sandra DB, Node.js, MongoDB, Git, MySQL, Hue Manager, Quartz, PyCharm, VS Code, IntelliJ, Jira, Asana</p>
+    </div>
+    
+    <div id="popup-experience" class="popup">
+        <div class="popup-header" id="popup-experience-header">
+            Experience
+            <button class="close-btn">X</button>
+        </div>
+        <p>Software Engineering Intern New York City, NY
+            Bank of America, Global Technology Summer Analyst Internship Program June 2024 – August 2024
+            • Engineered API to run PySpark jobs against a multi-petabyte data lake cluster, enabling seamless end-to-end data access, processing, & analysis through the Global Markets Technology chatbot for cross-team usage
+            • Developed SQL-based querying workflows for cloud processing, reducing high-volume data retrieval times by 35%
+            • Integrated machine learning-driven intent recognition using Rasa, allowing over 1,500 chatbot users to perform intuitive, natural language queries, reducing query complexity by 40% and improving response accuracy</p>
+    </div>
+
+    <div id="popup-projects" class="popup">
+        <div class="popup-header" id="popup-projects-header">
+            Publications / Projects
+            <button class="close-btn">X</button>
+        </div>
+        <p>“Multimodal Single-Entity Electrochemical Fluoride Sensor for Fuel Cell Membrane Degradation Diagnostics” | HFC | Electrochemistry | Python
+            • Published 5 September 2022, Raul Lopez et al. 2022 ECS Sens. Plus 1 035601, Impact Factor: 4.371
+            “Label and Bio-Active Free Electrochemical Detection of Testosterone Hormone Using MIP-based Sensing Platform” | Biosensing | IoMT
+            • Published 23 June 2023, Sanchez, Lopez et al. 2023 Materials Science & Engineering B 296 116670, Impact Factor: 3.6
+            “AI-Enhanced Smart Bandage: pH-Sensitive Wound Monitoring and Feedforward Neural Network for Adv. Healthcare Application”
+            Python | Pytorch | RF | Biosensing | Deep Learning
+            • Developed a deep learning model through PyTorch to predict healing dynamics from pH data, advancing personalized medical treatment
+            • Comprised of 3 layers (pH, Rectified Linear Unit, & wound healing stage), trained with the Adam Optimizer and cross-entropy loss
+            LLM-Powered Digital Assistant for Valorant Esports Team Optimization (Amazon x Riot Games Hackathon) | AWS | Bedrock | Python | S3 | Sagemaker
+            • Developed a digital assistant using LLM tech and AWS tools to enhance team dynamics and analyze competitive insights in Valorant eSports</p>
+    </div>
+
+    <div id="popup-pd" class="popup">
+        <div class="popup-header" id="popup-pd-header">
+            Leadership / Professional Development
+            <button class="close-btn">X</button>
+        </div>
+        <p>Cofounder and President | Vice President of Professional Development (prev.) Lakeland, FL
+            Society of Professional Engineers (SHPE), Florida Polytechnic University Chapter Aug 2023 - Present
+            • Founded the University chapter alongside original board members, directing its inaugural year towards success and stability
+            • Lead professional development efforts, having organized workshops and sessions for resumes, decorum, interviews, conferences, etc.
+            • Connect with other chapters and companies to work with FLPoly, providing unique and novel opportunities to 25+ members
+            Overwatch Varsity Captain & Title Manager Lakeland, FL
+            Florida Polytechnic University Esports August 2022 - Present
+            • Recruited 46 players to create 5 new teams, growing University Esports by 62%
+            • Finished 2nd in NECC Challengers Atlantic FA 2023, 1st in Challengers LCQ, and 3rd/199 in the 2023-24 NECC Nationals playoff</p>
+    </div>
+
+    <div id="popup-orgs" class="popup">
+        <div class="popup-header" id="popup-orgs-header">
+            Organizations
+            <button class="close-btn">X</button>
+        </div>
+        <p>ColorStack, The Hispanic Scholarship Fund (2024 HSF Scholar), University Quantum Network (Qubit x Qubit)</p>
+    </div>
+
+    <script>
+        // Load shared header
+        fetch("header.html")
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+
