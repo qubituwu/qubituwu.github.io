@@ -6,61 +6,117 @@
     <title>About Me - qubituwu</title>
     <link rel="icon" href="assets/LHC_logo.jpg" type="image/jpg">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #1e1e1e;
+            color: #00ff00;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            padding-top: 80px; 
+            margin: 0;
+        }
+
+        .terminal-box {
+            width: 80%;
+            max-width: 600px;
+            background: black;
+            padding: 20px;
+            margin-top: 80px;
+            border-radius: 5px;
+            border: 2px solid #00ff00;
+            box-shadow: 0 0 10px #00ff00;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            text-align: left; 
+        }
+
+        /* Container for the terminal bar with "Terminal" and macOS buttons */
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        /* macOS-style buttons (red, yellow, green) */
+        .mac-buttons {
+            display: flex;
+            gap: 5px;
+            margin-right: 10px;
+        }
+
+        .mac-button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: gray; /* Default color */
+        }
+
+        .mac-button.red {
+            background-color: #ff6f61;
+        }
+
+        .mac-button.yellow {
+            background-color: #ffb84d;
+        }
+
+        .mac-button.green {
+            background-color: #66b366;
+        }
+
+        /* Thin green bar between buttons and "Terminal" text */
+        .green-bar {
+            width: 100%;
+            height: 2px;
+            background-color: green;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* Terminal label "Terminal" */
+        .terminal-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #808080;
+        }
+
+        #typing-terminal-text {
+            font-family: monospace;
+            color: #ffffff;
+            font-size: 18px;
+            display: block;
+            text-align: left; 
+            white-space: normal; /* Allow wrapping */
+        }
+
+    </style>
 </head>
 <body>
     <!-- Load Shared Header -->
     <div id="header-container"></div>
-    
-    <!-- Modal Windows -->
-    <div class="card-container">
-        <div class="card" data-popup="popup-bio">Personal Bio</div>
-        <div class="card" data-popup="popup-technicalskills">Technical Skills</div>
-        <div class="card" data-popup="popup-accomplishments">Accomplishments</div>
-        <div class="card" data-popup="popup-music">Music</div>
-        <div class="card" data-popup="popup-hobbies">Hobbies and Interests</div>
-        
-    </div>
-    
-    <div id="popup-bio" class="popup">
-        <div class="popup-header">
-            Personal Bio
-            <button class="close-btn">X</button>
+    <div class="terminal-box">
+        <div class="terminal-header">
+            <!-- macOS-style buttons and green bar -->
+            <div class="mac-buttons">
+                <div class="mac-button red"></div>
+                <div class="mac-button yellow"></div>
+                <div class="mac-button green"></div>
+            </div>
+            <p class="terminal-title">terminal</p>
         </div>
-        <p>hey, i'm qubit; fullstack software engineer, content creator, top500 tank.</p>
-    </div>
-    
-    <div id="popup-accomplishments" class="popup">
-        <div class="popup-header">
-            Accomplishments
-            <button class="close-btn">X</button>
-        </div>
-        <p>Here are my accomplishments...</p>
-    </div>
-    
-    <div id="popup-technicalskills" class="popup">
-        <div class="popup-header">
-            Technical Skills
-            <button class="close-btn">X</button>
-        </div>
-        <p>python, js, c++...</p>
+        <div class="green-bar"></div>
+        <p id="typing-terminal-text"></p>
     </div>
 
-    <div id="popup-music" class="popup">
-        <div class="popup-header">
-            Music
-            <button class="close-btn">X</button>
-        </div>
-        <p>nettspend and aespa.</p>
+    <!--
+    <div class="content">
+        <h2>More About Me</h2>
+        <p>Here you can add more sections without extra imports.</p>
     </div>
-
-    <div id="popup-hobbies" class="popup">
-        <div class="popup-header">
-            Hobbies and Interest
-            <button class="close-btn">X</button>
-        </div>
-        <p>i like gaming, ABGS, and coding.</p>
-    </div>
-
+    -->
     <script>
         // Load shared header
         fetch("header.html")
@@ -70,5 +126,3 @@
     <script src="script.js"></script>
 </body>
 </html>
-
-

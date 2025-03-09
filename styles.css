@@ -82,6 +82,21 @@ header {
     padding-right: 20px; /* Add some space on the right */
 }
 
+.nav-link {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.nav-links a.active {
+    font-weight: bold;
+    color: blue; /* Highlight color */
+    border-bottom: 2px solid blue; /* Optional underline */
+}
+
+
 .nav-links li {
     display: inline;
 }

@@ -123,3 +123,46 @@ window.onload = () => {
       makeDraggable(modal.modalId, modal.headerId);
   });
 };
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const currentPage = window.location.pathname.split("/").pop(); // Get current file name
+  console.log("Current Page:", currentPage);  // Log the current page
+
+  const navLinks = document.querySelectorAll(".nav-links a");  // Update selector to target <a> elements directly
+
+  navLinks.forEach(link => {
+      console.log("Checking link:", link.href);  // Log each link's href for debugging
+      if (link.getAttribute("href") === currentPage) {
+          link.classList.add("active");  // Highlight the active page
+          console.log("Active class added to:", link.href);  // Confirm the active class is added
+      }
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const firstText = "$ hello, i'm qubit; full-stack software engineer, top 500 overwatch tank, content creator, and kpop fan.";
+  const secondText = "welcome to my cyber space."; // This is the part you want on a new line
+  const typingSpeed = 50; // Adjust speed (Lower = faster)
+  let i = 0;
+  const target = document.getElementById("typing-terminal-text");
+
+  function type(text, callback) {
+      if (i < text.length) {
+          target.innerHTML += text.charAt(i);
+          i++;
+          setTimeout(() => type(text, callback), typingSpeed);
+      } else if (callback) {
+          callback();
+      }
+  }
+
+  type(firstText, function() {
+      target.innerHTML += "<br>"; // Add a line break
+      i = 0; // Reset the index to start typing the second part
+      type(secondText); // Type the second part
+  });
+});
+
+
