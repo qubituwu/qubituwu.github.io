@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", function () {
 document.addEventListener("DOMContentLoaded", function () {
   const firstText = "$ hello, i'm qubit; full-stack software engineer, top 500 overwatch tank, content creator, and kpop fan.";
   const secondText = "welcome to my cyber space."; // This is the part you want on a new line
-  const typingSpeed = 50; // Adjust speed (Lower = faster)
+  const typingSpeed = 20; // Adjust speed (Lower = faster)
   let i = 0;
   const target = document.getElementById("typing-terminal-text");
 

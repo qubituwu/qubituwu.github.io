@@ -181,22 +181,6 @@ header {
     margin-top: 50px;
 }
 
-.links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px;
-}
-
-.links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px;
-}
-
 .link-button {
     display: flex; /* Use flexbox to align the logo and text */
     align-items: center; /* Vertically center the logo and text */
