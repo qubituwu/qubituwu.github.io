@@ -316,9 +316,79 @@ header {
     background: darkred;
 }
 
+/* General styling */
+#esports-page {
+    font-family: Arial, sans-serif;
+    color: white;
+    padding: 40px;
+    max-width: 900px;
+    margin: auto;
+}
 
+/* Headings */
+#esports-page h2 {
+    color: #00ff00;
+    border-left: 5px solid #00ff00;
+    padding-left: 10px;
+    margin-bottom: 15px;
+}
 
+/* PC Specs */
+#specs {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
 
+/* Peripherals Grid */
+.peripherals-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
+.peripheral {
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
 
-  
+.peripheral img {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.peripheral:hover {
+    transform: scale(1.1);
+}
+
+/* Esports Journey */
+#journey {
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+/* Heroes Grid */
+.heroes-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.hero-card {
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.hero-card img {
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.hero-card:hover {
+    transform: scale(1.1);
+}
