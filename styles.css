@@ -13,7 +13,8 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    /* leave space for fixed navbar; JS updates --nav-offset on load/resize */
+    padding: calc(var(--nav-offset, 80px) + env(safe-area-inset-top));
     text-align: center;
     color: white;
     position: relative;
@@ -63,6 +64,7 @@ header {
     justify-content: flex-start; /* Pushes logo left, links right */
     align-items: center;
     box-sizing: border-box; /* Prevents unwanted spacing */
+    z-index: 9999; /* keep navbar above page content on mobile */
 }
 
 .logo {
@@ -203,8 +205,8 @@ header {
     max-width: 1200px; /* cap width to control columns */
     margin: 0 auto; /* center container */
     box-sizing: border-box;
-    /* make the container fill the viewport area below the navbar so rows center correctly */
-    height: calc(100vh - var(--nav-offset, 80px));
+    /* make the container adapt to viewport while reserving navbar space */
+    min-height: calc(100vh - var(--nav-offset, 80px));
     grid-auto-rows: auto; /* don't stretch rows */
     align-content: center; /* center rows vertically within container */
 }
@@ -517,4 +519,27 @@ header {
 
 .hero-card:hover {
     transform: scale(1.1);
+}
+
+/* Strong overrides for eSports headers to ensure mobile applies the terminal font, sizes and glow */
+#esports-page h2 {
+    font-family: 'Courier New', monospace !important;
+    color: #00ff00 !important;
+    font-size: calc(var(--logo-font-size) * 0.68) !important;
+    font-weight: 900 !important;
+    text-shadow: 0 0 12px #00ff00, 0 0 28px #00ff00 !important;
+}
+
+#esports-page h3 {
+    font-family: 'Courier New', monospace !important;
+    color: #00ff00 !important;
+    font-size: calc(var(--logo-font-size) * 0.42) !important;
+    font-weight: 800 !important;
+    text-shadow: 0 0 8px #00ff00, 0 0 18px #00ff00 !important;
+}
+
+/* Tweak sizes for small screens so header text doesn't overflow */
+@media (max-width: 480px) {
+    #esports-page h2 { font-size: calc(var(--logo-font-size) * 0.42) !important; }
+    #esports-page h3 { font-size: calc(var(--logo-font-size) * 0.28) !important; }
 }
