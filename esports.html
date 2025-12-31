@@ -85,23 +85,70 @@
             </div>
         </section>
     
-        <!-- Esports Journey -->
+        <!-- Esports Journey
         <section id="journey">
             <h2>My Esports Journey</h2>
             <p>Started in FPS games, climbed ranks in Valorant, and competed in local tournaments.</p>
-        </section>
+        </section> -->
     
         <!-- Heroes -->
         <section id="heroes">
-            <h2>Heroes I Play</h2>
-            <div class="heroes-container">
-                <div class="hero-card">
-                    <img src="assets/kayo.jpg" alt="KAY/O">
-                    <p>KAY/O - Initiator</p>
+            <h2>Mains by Game</h2>
+            <div class="heroes-by-game">
+                <div class="game">
+                    <h3>Overwatch (Tank)</h3>
+                    <div class="heroes-container">
+                        <div class="hero-card">
+                            <img src="assets/hazard.jpg" alt="Hazard">
+                            <p>Hazard</p>
+                        </div>
+                        <div class="hero-card">
+                            <img src="assets/ramattra.jpg" alt="Ramattra">
+                            <p>Ramattra</p>
+                        </div>
+                        <div class="hero-card">
+                            <img src="assets/dva.jpg" alt="D.Va">
+                            <p>D.Va</p>
+                        </div>
+                        <div class="hero-card">
+                            <img src="assets/sigma.jpg" alt="Sigma">
+                            <p>Sigma</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="hero-card">
-                    <img src="assets/clover.jpg" alt="Clover">
-                    <p>Clover - Duelist</p>
+                <div class="game">
+                    <h3>League of Legends</h3>
+                    <div class="heroes-container">
+                        <div class="hero-card">
+                            <img src="assets/mordekaiser.jpg" alt="Mordekaiser">
+                            <p>Mordekaiser</p>
+                        </div>
+                        <div class="hero-card">
+                            <img src="assets/gwen.jpg" alt="Gwen">
+                            <p>Gwen</p>
+                        </div>
+                        <div class="hero-card">
+                            <img src="assets/sett.jpg" alt="Sett">
+                            <p>Sett</p>
+                        </div>
+                        <div class="hero-card">
+                            <img src="assets/zaahen.jpg" alt="Zaahen">
+                            <p>Zaahen</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="game">
+                    <h3>Valorant</h3>
+                    <div class="heroes-container">
+                        <div class="hero-card">
+                            <img src="assets/omen.jpg" alt="Omen">
+                            <p>Omen</p>
+                        </div>
+                        <div class="hero-card">
+                            <img src="assets/clove.jpg" alt="Clove">
+                            <p>Clove</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -110,10 +157,25 @@
     
 
     <script>
-        // Load shared header
+        // Load shared header and execute any scripts inside it
         fetch("header.html")
-            .then(response => response.text())
-            .then(data => document.getElementById("header-container").innerHTML = data);
+            .then(r => r.text())
+            .then(html => {
+                const container = document.getElementById('header-container');
+                container.innerHTML = html;
+                // execute inline scripts from loaded HTML
+                container.querySelectorAll('script').forEach(oldScript => {
+                    const s = document.createElement('script');
+                    if (oldScript.src) {
+                        s.src = oldScript.src;
+                        s.async = false;
+                        document.head.appendChild(s);
+                    } else {
+                        s.textContent = oldScript.textContent;
+                        document.head.appendChild(s);
+                    }
+                });
+            });
     </script>
 </body>
 </html>

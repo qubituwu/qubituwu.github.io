@@ -98,10 +98,18 @@
     </div>
 
     <script>
-        // Load shared header
+        // Load shared header and execute any scripts inside it
         fetch("header.html")
-            .then(response => response.text())
-            .then(data => document.getElementById("header-container").innerHTML = data);
+            .then(r => r.text())
+            .then(html => {
+                const container = document.getElementById('header-container');
+                container.innerHTML = html;
+                container.querySelectorAll('script').forEach(oldScript => {
+                    const s = document.createElement('script');
+                    if (oldScript.src) { s.src = oldScript.src; s.async = false; document.head.appendChild(s); }
+                    else { s.textContent = oldScript.textContent; document.head.appendChild(s); }
+                });
+            });
     </script>
     <script src="script.js"></script>
 </body>

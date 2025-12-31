@@ -33,17 +33,21 @@
                 <img src="assets/spotify-logo.png" alt="Spotify Logo" class="logo-icon">
                 <span>Spotify</span>
             </a>
-            <a href="https://gearz.gg/qubit" class="link-button" target="_blank">
-                <img src="assets/gearz-logo.png" alt="Gearz Logo" class="logo-icon">
-                <span>Gearz</span>
-            </a>
-            <a href="https://www.linkedin.com/in/raul-lopez-iii" class="link-button" target="_blank">
-                <img src="assets/linkedin-logo.png" alt="LinkedIn Logo" class="logo-icon">
-                <span>LinkedIn</span>
-            </a>
             <a href="https://www.youtube.com/@qubituwu" class="link-button" target="_blank">
                 <img src="assets/youtube-logo.png" alt="YouTube Logo" class="logo-icon">
                 <span>YouTube</span>
+            </a>
+            <a href="https://www.pinterest.com/qubituwu/" class="link-button" target="_blank">
+                <img src="assets/pinterest-logo.png" alt="Pinterest Logo" class="logo-icon">
+                <span>Pinterest</span>
+            </a>
+            <a href="https://steamcommunity.com/id/qubituwu" class="link-button" target="_blank">
+                <img src="assets/steam-logo.png" alt="Steam Logo" class="logo-icon">
+                <span>Steam</span>
+            </a>
+            <a href="https://gearz.gg/qubit" class="link-button" target="_blank">
+                <img src="assets/gearz-logo.png" alt="Gearz Logo" class="logo-icon">
+                <span>Gearz</span>
             </a>
             <a href="https://github.com/qubituwu" class="link-button" target="_blank">
                 <img src="assets/github-logo.png" alt="GitHub Logo" class="logo-icon">
@@ -52,10 +56,18 @@
         </div>        
     </main>
     <script>
-        // Load shared header
+        // Load shared header and execute any scripts inside it
         fetch("header.html")
-            .then(response => response.text())
-            .then(data => document.getElementById("header-container").innerHTML = data);
+            .then(r => r.text())
+            .then(html => {
+                const container = document.getElementById('header-container');
+                container.innerHTML = html;
+                container.querySelectorAll('script').forEach(oldScript => {
+                    const s = document.createElement('script');
+                    if (oldScript.src) { s.src = oldScript.src; s.async = false; document.head.appendChild(s); }
+                    else { s.textContent = oldScript.textContent; document.head.appendChild(s); }
+                });
+            });
     </script>
 </body>
 </html>
