@@ -165,4 +165,18 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+// Set CSS variable --nav-offset dynamically based on the fixed navbar height
+function setNavOffset() {
+  const navbar = document.querySelector('.navbar');
+  if (!navbar) return;
+  const navHeight = navbar.offsetHeight;
+  // add a small extra gap so content doesn't touch the navbar
+  const offset = navHeight + 8;
+  document.documentElement.style.setProperty('--nav-offset', offset + 'px');
+}
+
+window.addEventListener('load', setNavOffset);
+window.addEventListener('resize', setNavOffset);
+document.addEventListener('DOMContentLoaded', setNavOffset);
+
 

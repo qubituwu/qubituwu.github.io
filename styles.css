@@ -19,6 +19,20 @@ body {
     position: relative;
 }
 
+:root {
+    /* offset to account for the fixed navbar; used to equalize top/bottom spacing */
+    --nav-offset: 80px;
+    /* default icon size for the link squares; adjust here to resize all icons uniformly */
+    --link-icon-size: 56px;
+    /* default font size for link labels (squares) */
+    --link-font-size: 16px;
+    /* inner padding for link squares (controls spacing between icon/text and card edges) */
+    --link-padding: 16px;
+    /* padding inside the label area and computed label row height */
+    --link-label-padding: 6px;
+    --link-label-height: calc(var(--link-font-size) + (var(--link-label-padding) * 2));
+}
+
 /* Overlay to improve readability */
 .content {
     position: relative;
@@ -173,67 +187,97 @@ header {
   }
 
 
+/* Links page: responsive square cards grid */
 .links-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    /* fewer, larger cards per row for even distribution */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 36px; /* even gap between cards */
+    justify-items: center;
     align-items: center;
-    text-align: center;
-    margin-top: 50px;
+    /* reserve space for the fixed navbar and center the grid inside the remaining viewport height */
+    padding: 0 48px; /* horizontal padding only; vertical space is managed via height below */
+    width: 100%;
+    max-width: 1200px; /* cap width to control columns */
+    margin: 0 auto; /* center container */
+    box-sizing: border-box;
+    /* make the container fill the viewport area below the navbar so rows center correctly */
+    height: calc(100vh - var(--nav-offset, 80px));
+    grid-auto-rows: auto; /* don't stretch rows */
+    align-content: center; /* center rows vertically within container */
 }
 
-.links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px;
-}
+/* duplicate removed -- grid is defined above */
 
-.links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 50px;
-}
+/* duplicate removed -- grid is defined above */
 
 .link-button {
-    display: flex; /* Use flexbox to align the logo and text */
-    align-items: center; /* Vertically center the logo and text */
-    justify-content: center; /* Center the content horizontally */
-    width: 80%;
-    max-width: 400px;
-    padding: 15px;
-    margin: 10px 0;
-    background: linear-gradient(45deg, rgba(0, 23, 5, 0.9), rgba(13, 13, 13, 0.9));
-    color: #fff;
+    /* two-row grid: icon area (fills remaining space) + fixed label row at bottom */
+    display: grid;
+    grid-template-rows: calc(100% - var(--link-label-height)) var(--link-label-height);
+    justify-items: center;
+    align-items: center;
+    width: 100%;
+    max-width: 160px; /* prevent cards from stretching too wide */
+    aspect-ratio: 1 / 1;
+    padding: var(--link-padding);
+    margin: 0;
+    background: rgba(0,0,0,0.65);
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 12px #00ff00;
+    color: #ffffff;
     text-align: center;
-    font-size: 18px;
+    font-size: var(--link-font-size, 18px);
     font-weight: bold; /* Make text bold */
+    font-family: 'Courier New', monospace; /* terminal-style font to match About/Esports */
     text-decoration: none;
-    border-radius: 8px;
-    transition: 0.3s;
+    border-radius: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Make the page title span the full grid width and sit above the cards */
+/* page title removed by design (only link squares visible) */
+
 .link-button:hover {
-    background-color: #333;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,255,0,0.12), 0 0 18px #00ff00;
 }
 
 .logo-icon {
-    width: 40px; /* Adjust to your preferred size */
-    height: 40px;
-    margin-right: 10px; /* Add space between the logo and the text */
-    object-fit: contain; /* Ensures the logo maintains its aspect ratio */
+    /* constrain the icon so equal padding remains on all sides inside the flexible icon cell */
+    max-width: min(var(--link-icon-size, 48px), calc(100% - (var(--link-padding) * 2)));
+    max-height: min(var(--link-icon-size, 48px), calc(100% - (var(--link-padding) * 2)));
+    width: auto;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+    align-self: center; /* center icon vertically in the icon area */
+    justify-self: center;
 }
 
 /* Ensuring that text is centered */
 .link-button span {
-    display: inline-block;
-    flex-grow: 1; /* Allow text to take up remaining space */
-    text-align: center;  /* Center text */
-    line-height: 1.2; /* Make sure the text is vertically aligned */
-    margin-right: 35px; /* Space between logo and text */
+    display: block;
+    text-align: center;
+    line-height: 1.2;
+    margin: 0;
+    font-family: 'Courier New', monospace; /* ensure labels use terminal font */
+    padding: var(--link-label-padding) 0;
+    height: 100%;
+    box-sizing: border-box;
+}
 
+@media (min-width: 1400px) {
+    /* on very wide screens allow slightly larger min width */
+    .links-container { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); max-width: 1600px; }
+}
+
+@media (max-width: 420px) {
+    .links-container { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 12px; padding: 12px; }
+    /* scale icons down proportionally on small screens */
+    .logo-icon { width: calc(var(--link-icon-size, 48px) * 0.75); height: calc(var(--link-icon-size, 48px) * 0.75); }
+    /* reduce label size on small screens to keep layout balanced */
+    .link-button { font-size: calc(var(--link-font-size, 18px) * 0.78); }
 }
 
 /* Windows XP-style About Page */
@@ -318,19 +362,18 @@ header {
 
 /* General styling */
 #esports-page {
-    font-family: Arial, sans-serif;
-    color: white;
+    /* Use the same monospace font as the About page typing text */
+    font-family: 'Courier New', monospace;
+    color: #ffffff; /* body text in bubbles should be white */
     padding: 40px;
     max-width: 900px;
     margin: auto;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.6);
 }
 
 /* Headings */
 #esports-page h2 {
     color: #00ff00;
-    border-left: 5px solid #00ff00;
-    padding-left: 10px;
     margin-bottom: 15px;
 }
 
@@ -348,16 +391,18 @@ header {
 }
 
 .spec {
-    background: rgba(255, 255, 255, 0.1);
     padding: 12px;
     border-radius: 8px;
     text-align: center;
     transition: transform 0.3s ease-in-out;
+    background: rgba(0,0,0,0.7);
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 12px #00ff00;
+    color: #ffffff;
 }
 
 .spec:hover {
-    transform: scale(1.05);
-    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.03);
 }
 
 
@@ -369,15 +414,31 @@ header {
     flex-wrap: wrap;
 }
 
+
 .peripheral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     transition: transform 0.3s ease-in-out;
+    background: rgba(0,0,0,0.65);
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 12px #00ff00;
+    padding: 10px;
+    border-radius: 8px;
+    color: #ffffff;
+    flex: 0 0 160px;
+    min-height: 160px;
+    box-sizing: border-box;
 }
 
 .peripheral img {
     width: 120px;
     height: auto;
     border-radius: 10px;
+    display: block;
+    margin-bottom: 8px;
 }
 
 .peripheral:hover {
@@ -406,6 +467,18 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: rgba(0,0,0,0.7);
+    border: 2px solid #00ff00;
+    box-shadow: 0 0 12px #00ff00;
+    padding: 8px;
+    border-radius: 8px;
+    color: #ffffff;
+}
+
+/* Make headers green while body text remains white */
+#esports-page h2,
+#esports-page h3 {
+    color: #00ff00;
 }
 
 .hero-card img {
