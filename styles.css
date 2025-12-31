@@ -110,8 +110,8 @@ header {
 
 .nav-links a.active {
     font-weight: bold;
-    color: blue; /* Highlight color */
-    border-bottom: 2px solid blue; /* Optional underline */
+    color:  #00ff00; /* Highlight color */
+    border-bottom: 2px solid #00ff00; /* Optional underline */
 }
 
 
@@ -123,6 +123,7 @@ header {
     color: white;
     font-size: 20px;
     font-weight: bold;
+    font-family: 'Courier New', monospace; /* terminal font for nav link text only */
     text-decoration: none;
     padding: 10px;
 }

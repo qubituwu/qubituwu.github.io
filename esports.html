@@ -32,7 +32,6 @@
                     <strong>MOBO:</strong> Asus ROG STRIX B650-A GAMING WIFI
                 </div>
                 <div class="spec">
-    <script src="script.js"></script>
                     <strong>CPU Cooler:</strong> NZXT Kraken Elite 360 RGB Liquid Cooler
                 </div>
                 <div class="spec">
@@ -158,27 +157,10 @@
     
 
     <script>
-        // Load shared header and execute any scripts inside it
+        // Load shared header
         fetch("header.html")
-            .then(r => r.text())
-            .then(html => {
-                const container = document.getElementById('header-container');
-                container.innerHTML = html;
-                // execute inline scripts from loaded HTML
-                container.querySelectorAll('script').forEach(oldScript => {
-                    const s = document.createElement('script');
-                    if (oldScript.src) {
-                        s.src = oldScript.src;
-                        s.async = false;
-                        document.head.appendChild(s);
-                    } else {
-                        s.textContent = oldScript.textContent;
-                        document.head.appendChild(s);
-                    }
-                });
-                // try to start audio if present
-                try { const a = document.getElementById('site-audio'); if (a) a.play().catch(()=>{}); } catch(e){}
-            });
+            .then(response => response.text())
+            .then(data => document.getElementById("header-container").innerHTML = data);
     </script>
 </body>
 </html>
