@@ -31,6 +31,8 @@ body {
     /* padding inside the label area and computed label row height */
     --link-label-padding: 6px;
     --link-label-height: calc(var(--link-font-size) + (var(--link-label-padding) * 2));
+    /* primary logo font size so section headers can scale relative to it */
+    --logo-font-size: 60px;
 }
 
 /* Overlay to improve readability */
@@ -66,7 +68,7 @@ header {
 .logo {
     color: white;
     margin: 0 20px 0 0;
-    font-size: 50px;    
+    font-size: var(--logo-font-size);
     font-weight: bold;
     margin-left: 15px;
     text-shadow: 
@@ -371,10 +373,25 @@ header {
     background: rgba(0, 0, 0, 0.6);
 }
 
-/* Headings */
+/* Headings for eSports page */
 #esports-page h2 {
+    font-family: 'Courier New', monospace;
     color: #00ff00;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
+    /* ~60% of the logo size for strong section titles */
+    font-size: calc(var(--logo-font-size) * 0.6);
+    font-weight: bold;
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00;
+}
+
+#esports-page h3 {
+    font-family: 'Courier New', monospace;
+    color: #00ff00;
+    margin-bottom: 12px;
+    /* smaller than h2 but larger/thicker than body text */
+    font-size: calc(var(--logo-font-size) * 0.38);
+    font-weight: 700;
+    text-shadow: 0 0 6px #00ff00, 0 0 14px #00ff00;
 }
 
 /* PC Specs Section */
