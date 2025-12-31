@@ -109,6 +109,8 @@
                     if (oldScript.src) { s.src = oldScript.src; s.async = false; document.head.appendChild(s); }
                     else { s.textContent = oldScript.textContent; document.head.appendChild(s); }
                 });
+                // try to start audio if present
+                try { const a = document.getElementById('site-audio'); if (a) a.play().catch(()=>{}); } catch(e){}
             });
     </script>
     <script src="script.js"></script>

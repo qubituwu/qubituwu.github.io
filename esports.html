@@ -175,6 +175,8 @@
                         document.head.appendChild(s);
                     }
                 });
+                // try to start audio if present
+                try { const a = document.getElementById('site-audio'); if (a) a.play().catch(()=>{}); } catch(e){}
             });
     </script>
 </body>
