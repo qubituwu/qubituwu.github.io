@@ -53,20 +53,6 @@ header {
     padding: 20px;
 }
 
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw; /* Ensures full width */
-    background: linear-gradient(45deg, rgba(0, 23, 5, 0.9), rgba(13, 13, 13, 0.9));
-    padding: 10px;
-    display: flex;
-    justify-content: flex-start; /* Pushes logo left, links right */
-    align-items: center;
-    box-sizing: border-box; /* Prevents unwanted spacing */
-    z-index: 9999; /* keep navbar above page content on mobile */
-}
-
 .logo {
     color: white;
     margin: 0 20px 0 0;
@@ -89,6 +75,27 @@ header {
         0 0 10px #FFFFFF;  /* White glow */
 }
 
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full width */
+    background: linear-gradient(45deg, rgba(0, 23, 5, 0.9), rgba(13, 13, 13, 0.9));
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start; /* Pushes logo left, links right */
+    align-items: center;
+    box-sizing: border-box; /* Prevents unwanted spacing */
+    z-index: 9999; /* Keep navbar above page content */
+}
+
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    display: none; /* Hidden by default, shown on mobile */
+}
+
 .nav-links {
     list-style: none;
     display: flex;
@@ -100,48 +107,19 @@ header {
     padding-right: 20px; /* Add some space on the right */
 }
 
-.nav-link {
+.nav-links a {
     color: white;
     font-size: 20px;
     font-weight: bold;
+    font-family: 'Courier New', monospace; /* Terminal font for nav link text */
     text-decoration: none;
     padding: 10px;
 }
 
 .nav-links a.active {
     font-weight: bold;
-    color:  #00ff00; /* Highlight color */
+    color: #00ff00; /* Highlight color */
     border-bottom: 2px solid #00ff00; /* Optional underline */
-}
-
-
-.nav-links li {
-    display: inline;
-}
-
-.nav-links a {
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    font-family: 'Courier New', monospace; /* terminal font for nav link text only */
-    text-decoration: none;
-    padding: 10px;
-}
-
-.gif-container {
-    display: flex;
-    align-items: center;
-}
-
-.gif-container img {
-    max-width: 75px;
-    max-height: 75px;
-}
-
-.hamburger {
-    font-size: 30px;
-    cursor: pointer;
-    display: none;
 }
 
 /* Mobile Styles */
@@ -149,7 +127,7 @@ header {
     .hamburger {
         display: block; /* Show hamburger menu */
         margin-left: auto; /* Pushes it to the right */
-        padding-right: 20px; 
+        padding-right: 20px;
     }
 
     .nav-links {
@@ -173,6 +151,18 @@ header {
         padding: 10px;
     }
 }
+
+.gif-container {
+    display: flex;
+    align-items: center;
+}
+
+.gif-container img {
+    max-width: 75px;
+    max-height: 75px;
+}
+
+
 
 #typing-container {
     display: flex;

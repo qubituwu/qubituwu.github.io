@@ -179,4 +179,18 @@ window.addEventListener('load', setNavOffset);
 window.addEventListener('resize', setNavOffset);
 document.addEventListener('DOMContentLoaded', setNavOffset);
 
+// Highlight the active navigation link
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const currentPath = window.location.pathname;
+
+  navLinks.forEach(link => {
+      // Check if the link's href matches the current page
+      if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+      } else {
+          link.classList.remove('active');
+      }
+  });
+});
 
